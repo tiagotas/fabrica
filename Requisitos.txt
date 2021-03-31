@@ -1,0 +1,13 @@
+Software para Fábrica (Sapatos)
+
+1) Usuario 
+2) Produto (sapato salto alto, sapato sem salto) 
+3) Categoria_Produto (sapatatos abertos, fechados, sandálias, chinelos, sapatenis)
+4) Insumos (matéria prima) (couro, pregos, fivelas, cola, camurça, plamilha)
+5) Insumos_Categoria (Couro Sintético, Couro Natural, Couro de Peixe, Couro de Jacaré)
+6) Fornecedor 
+7) Compra 
+8) Compra_Itens
+
+
+2) Estoque (produtos para fabricar sapatos e produto prontos)
