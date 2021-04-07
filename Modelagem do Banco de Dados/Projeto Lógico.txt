@@ -1,0 +1,10 @@
+Fornecedor (id, razao_social, cnpj)
+
+Compra (id, fk_id_fornecedor, data_compra, forma_pgto)
+
+Cat_Insumo (id, descricao)
+
+Insumo (id, descricao, peso, fk_id_cat_insumo)
+
+
+Item (qnt, valor_unitario, total, fk_id_compra, fk_id_insumo)

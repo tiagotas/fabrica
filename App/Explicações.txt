@@ -1,0 +1,6 @@
+Modelo MVC (em camadas, cada camada responsável por uma ação)
+
+Model (Modelo)          => Validações (formulário) e Acessa a DAO
+View (Visualização)     => Front-end (html, css, bootstrap, js)
+DAO (Data Acess Object) => Camada de Acesso ao Banco de Dados
+Controller (Controle)   => Decide qual View mostrar de acordo com a solicitação.
