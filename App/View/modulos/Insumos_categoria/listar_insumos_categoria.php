@@ -21,7 +21,7 @@
                 <?php foreach($lista_do_db as $item): ?>
                 <tr>
                     <td><?= $item->id ?></td>
-                    <td><?= $item->descricao ?></td>
+                    <td><a href="/insumo/categoria/ver?id=<?= $item->id ?>"><?= $item->descricao ?></a></td>
                 </tr>
                 <?php endforeach ?>
 

@@ -6,8 +6,6 @@
  * U pdate (Update) -> atualiza um registro específico
  * D elete (Delete) -> delete um registro específico
  */
-include 'MySQL.php';
-
 
 class InsumoCategoriaDAO
 {
@@ -18,24 +16,72 @@ class InsumoCategoriaDAO
         $this->conexao = new MySQL();         
     }
 
-    public function insert()
+    public function insert(InsumoCategoriaModel $model)
     {
+        try 
+        {
+            $sql = "INSERT INTO insumo_cat (descricao) VALUES (?) ";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            
+            return $stmt->execute();
+
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
-    public function update()
+    public function update(InsumoCategoriaModel $model)
     {
+        try 
+        {
+            $sql = "UPDATE insumo_cat SET descricao = ? WHERE id = ? ";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $model->descricao);
+            $stmt->bindValue(2, $model->id);
+            
+            return $stmt->execute();
+
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
-    public function delete()
+    public function delete($id)
     {
+        try 
+        {
+            $sql = "DELETE FROM insumo_cat WHERE id = ?";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            
+            return $stmt->execute();
+
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
-    public function getById()
+    public function getById($id)
     {
+        try 
+        {
+            $sql = "SELECT * FROM insumo_cat WHERE id = ?";
 
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+
+            $registro_completo = $stmt->fetchObject('InsumoCategoriaModel');
+
+            return $registro_completo;
+
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
 
