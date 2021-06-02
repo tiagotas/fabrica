@@ -15,7 +15,7 @@
 
     <main class="container bg-white rounded border mt-3 p-3">
 
-        <h4>Lista de Categorias de Insumos de Fabricação de Sapatos</h4>
+        <h4>Lista de Categorias de Insumos de Fabricação de Sapatos <?= $model->rows_count ?> </h4>
 
         <table class="table table-sm table-stripped">
             <thead class="thead-dark">
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
 
-                <?php foreach ($lista_do_db as $item) : ?>
+                <?php foreach ($model->rows as $item) : ?>
                     <tr>
                         <td><?= $item->id ?></td>
                         <td><a href="/insumo/categoria/ver?id=<?= $item->id ?>"><?= $item->descricao ?></a></td>

@@ -7,15 +7,25 @@
  * D elete (Delete) -> delete um registro específico
  */
 
-class InsumoCategoriaDAO
-{
-    private $conexao;
+namespace App\DAO;
 
+use App\Model\InsumoCategoriaModel;
+use Exception;
+
+final class InsumoCategoriaDAO extends DAO
+{
+    /**
+     * 
+     */  
     public function __construct()
     {
-        $this->conexao = new MySQL();         
+        parent::__construct();                
     }
 
+
+    /**
+     * 
+     */
     public function insert(InsumoCategoriaModel $model)
     {
         try 
@@ -32,6 +42,10 @@ class InsumoCategoriaDAO
         }
     }
 
+
+    /**
+     * 
+     */
     public function update(InsumoCategoriaModel $model)
     {
         try 
@@ -49,7 +63,11 @@ class InsumoCategoriaDAO
         }
     }
 
-    public function delete($id)
+
+    /**
+     * 
+     */
+    public function delete(int $id)
     {
         try 
         {
@@ -65,7 +83,11 @@ class InsumoCategoriaDAO
         }
     }
 
-    public function getById($id)
+
+    /**
+     * 
+     */
+    public function getById(int $id)
     {
         try 
         {
@@ -75,7 +97,7 @@ class InsumoCategoriaDAO
             $stmt->bindValue(1, $id);
             $stmt->execute();
 
-            $registro_completo = $stmt->fetchObject('InsumoCategoriaModel');
+            $registro_completo = $stmt->fetchObject('App\Model\InsumoCategoriaModel');
 
             return $registro_completo;
 
@@ -95,7 +117,7 @@ class InsumoCategoriaDAO
             $stmt = $this->conexao->prepare("SELECT * FROM insumo_cat");
             $stmt->execute();
 
-            $listagem = $stmt->fetchAll(PDO::FETCH_CLASS);
+            $listagem = $stmt->fetchAll(DAO::FETCH_CLASS);
 
             return $listagem;
 

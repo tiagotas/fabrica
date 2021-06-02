@@ -1,19 +1,23 @@
 <?php
 
-include 'DAO/InsumoCategoriaDAO.php';
+namespace App\Controller;
 
-class InsumoCategoriaController
+use App\DAO\InsumoCategoriaDAO;
+use App\Model\InsumoCategoriaModel;
+
+final class InsumoCategoriaController extends Controller
 {
     /**
      * Abre a View de listagem de categorias de insumos.
      */
     public static function index()
     {
-        $dao = new InsumoCategoriaDAO();
+        parent::isProtected();
 
-        $lista_do_db = $dao->getAllRows();
+        $model = new InsumoCategoriaModel();
+        $model->getAllRows();
 
-        include PATH_VIEW . 'modulos/Insumos_categoria/listar_insumos_categoria.php';
+        parent::render('Insumos_categoria/listar_insumos_categoria',  $model);
     }
     
 
@@ -22,11 +26,14 @@ class InsumoCategoriaController
      */
     public static function cadastro()
     {
+        parent::isProtected();
+
         $model = new InsumoCategoriaModel();
 
-        include PATH_VIEW. 'modulos/Insumos_categoria/form_insumos_categoria.php';
+        parent::render('Insumos_categoria/form_insumos_categoria', $model);
     }
 
+    
     /**
      * Processa a requisição do formulário para salvar um cadastro
      */

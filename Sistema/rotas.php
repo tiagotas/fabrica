@@ -1,9 +1,11 @@
 <?php
 
+use App\Controller\{InsumoCategoriaController};
+
 switch($uri)
 {
     case '/':
-        include 'View/index.php';
+        include PATH_VIEW . 'index.php';
     break;
 
     case '/insumo/categoria':

@@ -2,6 +2,10 @@
 /**
  * Fazer conexão com o MySQL
  */
+namespace Library;
+
+use PDO;
+
 class MySQL extends PDO
 {
     private $host = "localhost";
