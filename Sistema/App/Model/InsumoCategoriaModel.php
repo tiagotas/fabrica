@@ -7,7 +7,16 @@ use App\DAO\InsumoCategoriaDAO;
 final class InsumoCategoriaModel extends Model
 {
     public $id;
-    public $descricao;    
+    public $descricao;
+    
+
+    /**
+     * 
+     */
+    public function __construct()
+    {
+        $this->dao = new InsumoCategoriaDAO();
+    }
     
 
     /**
@@ -15,9 +24,7 @@ final class InsumoCategoriaModel extends Model
      */
     public function getAllRows()
     {
-        $dao = new InsumoCategoriaDAO();
-
-        $this->rows = $dao->getAllRows();
+        $this->rows = $this->dao->getAllRows();
         $this->rows_count = count($this->rows);
     }
 
@@ -27,7 +34,10 @@ final class InsumoCategoriaModel extends Model
      */
     public function getById(int $id)
     {
+        $dados = $this->dao->getById($id);
 
+        $this->id = $dados->id;
+        $this->descricao = $dados->descricao;
     }
 
 
@@ -36,6 +46,27 @@ final class InsumoCategoriaModel extends Model
      */
     public function save()
     {
+        if(empty(str_replace(" ", "", $this->descricao)))
+            $this->setValidationError("A descrição não pode ser vazia.");
+        
+            
 
+        if(!$this->hasValidationErrors())
+        {
+            if($this->id == NULL)
+                $this->dao->insert($this);
+            else
+                $this->dao->update($this);
+        } else 
+            return false;       
+    }
+
+
+    /**
+     * 
+     */
+    public function delete(int $id)
+    {
+        $this->dao->delete($id);
     }
 }

@@ -19,6 +19,23 @@
                 Cadastro de Categoria de Insumo
             </legend>
 
+            <?php if($model->hasValidationErrors()): ?>
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Ops!</h4>
+                <p>Ocorreram erros de validação no formulário:</p>
+                <hr>
+                <ul class="mb-0">
+                    <?php foreach ($model->getValidationErrors() as $error) : ?>
+                        <li><?= $error ?> </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+            <?php endif ?>
+
+
+
+
+
             <form method="post" action="/insumo/categoria/cadastro/salvar">
 
                 <div class="form-group">

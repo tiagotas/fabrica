@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\Model;
+
 abstract class Controller 
 {
     /**
@@ -16,7 +18,7 @@ abstract class Controller
     /**
      * Busca um View para ser apresentada ao usuário.
      */
-    protected static function render($view, $model = null)
+    protected static function render($view, Model $model = null)
     {
         $path = PATH_VIEW . '/modulos/' . $view . '.php';
 
