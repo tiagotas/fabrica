@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DAO;
+namespace Library\Core;
 
-use Library\MySQL;
+use Library\DataBases\MySQL;
 
 abstract class DAO extends MySQL
 {

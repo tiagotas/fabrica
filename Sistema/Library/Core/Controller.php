@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Controller;
-
-use App\Model\Model;
+namespace Library\Core;
 
 abstract class Controller 
 {
@@ -24,5 +22,7 @@ abstract class Controller
 
         if(file_exists($path))
             require $path;
+        else
+            echo "Arquivo não encontrado.";
     }
 }

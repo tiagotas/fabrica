@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Library\Core\Controller;
 use App\Model\InsumoCategoriaModel;
 
 final class InsumoCategoriaController extends Controller

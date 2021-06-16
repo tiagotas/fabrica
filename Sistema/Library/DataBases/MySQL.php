@@ -2,7 +2,7 @@
 /**
  * Fazer conexão com o MySQL
  */
-namespace Library;
+namespace Library\DataBases;
 
 use PDO;
 

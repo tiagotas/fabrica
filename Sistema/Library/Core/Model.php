@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Model;
+namespace Library\Core;
 
 abstract class Model
 {
-
     protected $dao;
 
     public $rows;
     public $rows_count;
 
-    protected $validation_erros = [];
+    protected $validation_errors = [];
     
 
     /**
@@ -18,7 +17,7 @@ abstract class Model
      */
     protected function setValidationError($error)
     {
-        $this->validation_erros[] = $error;
+        $this->validation_errors[] = $error;
     }
 
 
@@ -27,7 +26,7 @@ abstract class Model
      */
     public function getValidationErrors()
     {
-        return $this->validation_erros;
+        return $this->validation_errors;
     }
 
 
@@ -36,6 +35,6 @@ abstract class Model
      */
     public function hasValidationErrors()
     {
-        return count($this->validation_erros) > 0 ? true : false;
+        return count($this->validation_errors) > 0 ? true : false;
     }    
 }

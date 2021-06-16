@@ -9,6 +9,7 @@
 
 namespace App\DAO;
 
+use Library\Core\DAO;
 use App\Model\InsumoCategoriaModel;
 use Exception;
 

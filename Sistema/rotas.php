@@ -1,9 +1,22 @@
 <?php
 
-use App\Controller\{InsumoCategoriaController};
+use App\Controller\{InsumoCategoriaController, LoginController};
 
 switch($uri)
 {
+    case '/login':
+        LoginController::index();
+    break;
+
+    case '/auth':
+        LoginController::auth();
+    break;
+
+    case '/logout':
+        LoginController::logout();
+    break;
+
+
     case '/':
         include PATH_VIEW . 'index.php';
     break;

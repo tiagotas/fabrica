@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Library\Core\Model;
 use App\DAO\InsumoCategoriaDAO;
 
 final class InsumoCategoriaModel extends Model
