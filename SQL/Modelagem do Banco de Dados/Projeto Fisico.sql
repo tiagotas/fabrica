@@ -2,6 +2,14 @@ create database Fabrica;
 
 use Fabrica;
 
+create table Usuario (
+  id int auto_increment primary key,
+  nome varchar(50),
+  email varchar(100),
+  senha varchar(100)
+);
+
+
 create table Fornecedor (
    id int auto_increment primary key,
    razao_social varchar(150),

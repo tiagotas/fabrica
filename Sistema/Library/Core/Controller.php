@@ -10,6 +10,8 @@ abstract class Controller
     protected static function isProtected()
     {
         // Verifica se o usuário fez o login.
+        if(!isset($_SESSION['etecshoes_usuario_logado']))
+            header("Location: /login");
     }
 
 

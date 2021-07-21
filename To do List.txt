@@ -1,0 +1,19 @@
+21/07/2021
+
+-> FUNCIONALIDADES DO SISTEMA
+
+[OK] Proteger Páginas
+[  ] Implementar Sistema de Login
+[  ] Implementar "Lembrar Usuário"
+[  ] Implementar "Esqueci a Senha"
+[  ] Implementar Troca da Senha e "Meus Dados"
+[  ] Implementar Produtos (Usar Chave Estrangeira)
+[  ] Devolver requisições em JSON
+[  ] Implementar Upload de Imagens
+
+
+-> ATIVIDADES COM JAVASCRIPT
+[  ] Criar elementos na interface
+[  ] Requisições Assíncronas (Ajax)
+[  ] Leitura de JSON (JavaScript Object Notation)
+

@@ -8,7 +8,7 @@ use App\Model\LoginModel;
 final class LoginController extends Controller
 {
     /**
-     * Abre o fomrulário de login.
+     * Abre o formulário de login.
      */
     public static function index()
     {
@@ -21,7 +21,12 @@ final class LoginController extends Controller
      */
     public static function auth()
     {
+        $_SESSION['etecshoes_usuario_logado'] = array(
+            'id' => 1,
+            'nome' => 'Aluno Etec'
+        );
 
+        header("Location: /");
     }
 
 
@@ -30,6 +35,8 @@ final class LoginController extends Controller
      */
     public static function logout()
     {
+        unset($_SESSION['etecshoes_usuario_logado']);
 
+        header("Location: /login");
     }
 }
