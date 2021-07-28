@@ -12,7 +12,11 @@ final class LoginController extends Controller
      */
     public static function index()
     {
-        parent::render('login/login_form');
+        $model = new LoginModel();
+
+        $model->checkRememberUser();
+
+        parent::render('login/login_form', $model);
     }
 
 
@@ -21,12 +25,22 @@ final class LoginController extends Controller
      */
     public static function auth()
     {
-        $_SESSION['etecshoes_usuario_logado'] = array(
-            'id' => 1,
-            'nome' => 'Aluno Etec'
-        );
+        $model = new LoginModel();
 
-        header("Location: /");
+        $model->email = $_POST['email'];
+        $model->senha = $_POST['senha'];
+
+        $model->auth();
+
+        if(!$model->hasValidationErrors())
+        {
+            if(isset($_POST['remember']))
+                LoginModel::remember($model->email);
+            
+            header("Location: /");
+
+        } else
+            parent::render('login/login_form', $model);            
     }
 
 
@@ -35,8 +49,17 @@ final class LoginController extends Controller
      */
     public static function logout()
     {
-        unset($_SESSION['etecshoes_usuario_logado']);
+        LoginModel::logout();
 
         header("Location: /login");
+    }
+
+
+    /**
+     * 
+     */
+    public static function esqueciSenha()
+    {
+        parent::render('login/esqueci_senha_form', new LoginModel());
     }
 }

@@ -3,9 +3,9 @@
 -> FUNCIONALIDADES DO SISTEMA
 
 [OK] Proteger Páginas
-[  ] Implementar Sistema de Login
-[  ] Implementar "Lembrar Usuário"
-[  ] Implementar "Esqueci a Senha"
+[OK] Implementar Sistema de Login
+[OK] Implementar "Lembrar Usuário"
+[+-] Implementar "Esqueci a Senha"
 [  ] Implementar Troca da Senha e "Meus Dados"
 [  ] Implementar Produtos (Usar Chave Estrangeira)
 [  ] Devolver requisições em JSON

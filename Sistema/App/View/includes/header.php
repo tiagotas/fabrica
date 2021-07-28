@@ -1,3 +1,8 @@
+<?php
+
+$usuario = App\Model\LoginModel::getCurrentUser();
+
+?>
 <header class="container">
 
     <div class="row align-items-center p-3">
@@ -9,14 +14,14 @@
         </div>
         <div class="col-sm-6 text-right">
             <div class="btn-group" role="group" aria-label="Dados do Usuário">
-                <button type="button" class="btn btn-secondary">Aluno Etec</button>
+                <button type="button" class="btn btn-secondary"><?= $usuario['nome'] ?></button>
                 <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <a class="dropdown-item" href="#">Meus Dados</a>
-                        <a class="dropdown-item" href="#">Sair</a>
+                        <a class="dropdown-item" href="/logout">Sair</a>
                     </div>
                 </div>
             </div>

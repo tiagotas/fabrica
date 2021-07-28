@@ -1,6 +1,6 @@
 <?php
 
-use App\Controller\{InsumoCategoriaController, LoginController};
+use App\Controller\{DashboardController, InsumoCategoriaController, LoginController};
 
 switch($uri)
 {
@@ -16,9 +16,13 @@ switch($uri)
         LoginController::logout();
     break;
 
+    case '/recuperar-senha':
+        LoginController::esqueciSenha();
+    break;
+
 
     case '/':
-        include PATH_VIEW . 'index.php';
+        DashboardController::index();
     break;
 
     case '/insumo/categoria':
